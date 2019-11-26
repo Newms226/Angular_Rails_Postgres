@@ -2,9 +2,12 @@ FROM ruby:2.5.3
 RUN apt-get update -qq && apt-get install -y nodejs postgresql-client
 RUN mkdir /CarShopAPI
 WORKDIR /CarShopAPI
+
+ENV GEM_HOME="/usr/local/bundle"
+ENV PATH $GEM_HOME/bin:$GEM_HOME/gems/bin:$PATH
 COPY Gemfile /CarShopAPI/Gemfile
 COPY Gemfile.lock /CarShopAPI/Gemfile.lock
-run gem install bundler
+RUN gem install bundler
 RUN bundle install
 COPY . /CarShopAPI
 
