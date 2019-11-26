@@ -12,3 +12,4 @@ script:
   - docker container ls
   - docker-compose run ror rails db:create
   - docker-compose run ror rails test
+  - docker-compose run ng ng test

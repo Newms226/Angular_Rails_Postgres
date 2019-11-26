@@ -18,7 +18,7 @@ module Backend
 
     Rails.application.config.middleware.insert_before 0, Rack::Cors do
       allow do
-          origins /^ng:\/\/n:4200$/
+          origins /^http:\/\/localhost:4200$/
           resource '*',
           headers: :any,
           expose:  ['access-token', 'expiry', 'token-type', 'uid', 'client'],
