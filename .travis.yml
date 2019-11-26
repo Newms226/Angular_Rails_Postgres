@@ -1,6 +1,8 @@
 language: ruby
+
 rvm:
   - 2.5.3
+
 services:
   - docker
 
@@ -8,6 +10,5 @@ script:
   - docker-compose up --build
   - docker-compose ps
   - docker-compose run ror rails test
-
-script:
-  - bundle exec rake test
+  - docker-compose stop
+  - shutdown now
