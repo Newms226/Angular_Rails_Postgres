@@ -1,15 +1,12 @@
 FROM ruby:2.5.3
 RUN apt-get update -qq && apt-get install -y nodejs postgresql-client
-RUN mkdir /backend
-WORKDIR /backend
-
-ENV GEM_HOME="/usr/local/bundle"
-ENV PATH $GEM_HOME/bin:$GEM_HOME/gems/bin:$PATH
-COPY backend/Gemfile /backend/Gemfile
-COPY backend/Gemfile.lock /backend/Gemfile.lock
-RUN gem install bundler
+RUN mkdir /CarShopAPI
+WORKDIR /CarShopAPI
+COPY Gemfile /CarShopAPI/Gemfile
+COPY Gemfile.lock /CarShopAPI/Gemfile.lock
+run gem install bundler
 RUN bundle install
-COPY ./backend /backend
+COPY . /CarShopAPI
 
 # Add a script to be executed every time the container starts.
 COPY entrypoint.sh /usr/bin/
