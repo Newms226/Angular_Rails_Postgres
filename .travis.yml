@@ -7,9 +7,8 @@ services:
   - docker
 
 script:
-  - docker-compose up --build
+  - docker-compose build
   - docker-compose ps
+  - docker container ls
   - docker-compose run ror rails db:create
   - docker-compose run ror rails test
-  - docker-compose stop
-  - shutdown now
