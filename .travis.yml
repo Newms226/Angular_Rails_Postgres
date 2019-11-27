@@ -6,9 +6,14 @@ rvm:
 services:
   - docker
 
+install:
+  - npm install
+
 script:
-  - docker-compose up -d --build
-  - docker-compose ps
+  - docker-compose build
+  - docker-compose container ls
   - docker-compose run ror rails db:create
   - docker-compose run ror rails test
+  - docker-compose run ng npm run test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
+  - docker-compose run ng npm run e2e -- --protractor-config=e2e/protractor-ci.conf.js
   - docker-compose stop
