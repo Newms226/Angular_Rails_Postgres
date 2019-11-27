@@ -13,12 +13,15 @@ services:
       - "3000:3000"
     depends_on:
       - db
+
   ng: # The name of the service
       # container_name: angularcontainer  # Container name
       build: ./CarShopSPA # Location of our Dockerfile
       volumes: # Volume binding
-        - './CarShopSPA:/usr/src/app' 
+        - './CarShopSPA:/usr/src/app'
       ports:
         - '4200:4200' # Port mapping
       command: >
         bash -c "npm install && ng serve --host 0.0.0.0 --port 4200"
+      depends_on:
+        - ror
