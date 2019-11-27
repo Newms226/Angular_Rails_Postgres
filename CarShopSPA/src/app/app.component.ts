@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { StatusService } from './status.service'
+import { StatusService, Status } from './status.service'
 
 @Component({
   selector: 'app-root',
@@ -8,14 +8,14 @@ import { StatusService } from './status.service'
 })
 export class AppComponent {
   title = 'CarShopSPA';
-  status: string;
+  status: Status;
 
   constructor(private apiService: StatusService) {
     this.read_status()
   }
 
   read_status() {
-    this.apiService.get_status().subscribe((data: JSON) => this.status = data['data'])
+    this.apiService.get_status().subscribe((data: Status) => this.status = data)
     console.log(this.status)
   }
 }

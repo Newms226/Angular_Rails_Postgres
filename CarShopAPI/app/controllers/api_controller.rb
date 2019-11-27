@@ -1,5 +1,5 @@
 class ApiController < ApplicationController
   def status
-    render json: {data: 'json'}
+    render json: {status: '200 ok'}
   end
 end

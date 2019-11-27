@@ -12,4 +12,5 @@ script:
   - docker container ls
   - docker-compose run ror rails db:create
   - docker-compose run ror rails test
-  - docker-compose run ng ng test
+  - docker-compose run ng npm run test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
+  - docker-compose run ng npm run e2e -- --protractor-config=e2e/protractor-ci.conf.js
