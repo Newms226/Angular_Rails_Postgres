@@ -6,13 +6,9 @@ rvm:
 services:
   - docker
 
-install:
-  - npm install -g @angular/cli
-
 script:
   - docker-compose build
-  - docker container -ls
-  - docker-compose ps
+  - docker container ls
   - docker-compose run ror rails db:create
   - docker-compose run ror rails test
   - docker-compose run ng npm run test -- --no-watch --no-progress --browsers=ChromeHeadless
