@@ -12,4 +12,3 @@ script:
   - docker-compose run ror rails db:create
   - docker-compose run ror rails test
   - docker-compose stop
-  - shutdown now
