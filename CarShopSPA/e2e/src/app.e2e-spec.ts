@@ -8,10 +8,14 @@ describe('workspace-project App', () => {
     page = new AppPage();
   });
 
-  it('should display welcome message', () => {
-    page.navigateTo();
-    expect(page.getTitleText()).toEqual('CarShopSPA app is running!');
-  });
+  // it('should display welcome message', () => {
+  //   page.navigateTo();
+  //   expect(page.getTitleText()).toEqual('CarShopSPA app is running!');
+  // });
+  // it('should display status message', () => {
+  //   page.navigateTo();
+  //   expect(page.getStatusText()).toEqual('READ STATUS: 200 ok')
+  // })
 
   afterEach(async () => {
     // Assert that there are no errors emitted from the browser
